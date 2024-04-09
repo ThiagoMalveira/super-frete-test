@@ -13,9 +13,9 @@ body {
   font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: var(--white);
   display: flex;
   justify-content: center;
+  background-color: var(--gray-scale-1);
 }
 
 code {

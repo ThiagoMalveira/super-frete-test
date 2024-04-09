@@ -19,22 +19,25 @@ function App() {
   return (
     <div className={style.Wrapper}>
       <div className={style.AppContainer}>
-        <div className={style.logoWrapper}>
-          <Logo />
+        <div className={style.UpperWrapper}>
+          <div className={style.logoWrapper}>
+            <Logo />
+          </div>
+          <div className={style.insertMessage}>
+            <h1 className={style.typeBelow}>Digite um texto abaixo</h1>
+          </div>
+          <div className={style.inputWrapper}>
+            <Input
+              type="text"
+              label="Mensagem*"
+              onChange={handleChange}
+              disabled={disabled}
+              defaultValue={message}
+            />
+            <Button onClick={handleCreateNewMessage} disabled={!message} />
+          </div>
         </div>
-        <div className={style.insertMessage}>
-          <h1 className={style.typeBelow}>Digite um texto abaixo</h1>
-        </div>
-        <div className={style.inputWrapper}>
-          <Input
-            type="text"
-            label="Mensagem*"
-            onChange={handleChange}
-            disabled={disabled}
-            defaultValue={message}
-          />
-          <Button onClick={handleCreateNewMessage} disabled={!message} />
-        </div>
+
         <div className={style.sendMessages}>
           <div>
             <h1 className={style.sendedMessage}>Mensagens enviadas</h1>
