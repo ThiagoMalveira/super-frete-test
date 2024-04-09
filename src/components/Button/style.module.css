@@ -1,0 +1,23 @@
+.buttonPrimary {
+  width: 100%;
+  height: 56px;
+  border-radius: 12px;
+  padding: 16px 24px;
+  background-color: var(--green);
+  color: var(--white);
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  letter-spacing: 0.0015em;
+}
+
+.buttonPrimary:hover {
+  opacity: 0.9;
+  transition: border-color 0.3s ease;
+}
+
+.buttonPrimary:disabled {
+  background-color: var(--gray-scale-1);
+  color: var(--gray-scale-4);
+}
