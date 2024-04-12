@@ -7,6 +7,9 @@
 
 .logoWrapper {
   padding: 32px 0 0 0;
+  min-width: 360px;
+  display: flex;
+  justify-content: center;
 }
 
 .Wrapper {
@@ -15,9 +18,13 @@
 }
 
 .UpperWrapper {
-  width: 100%;
+  width: 100vw;
   background-color: var(--white);
   padding: 0px 16px 16px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 360px;
 }
 
 .sendMessages {
@@ -33,6 +40,7 @@
 
 .inputWrapper {
   width: 100%;
+  max-width: 360px;
 }
 
 .wrapperLoading {
@@ -66,6 +74,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  max-width: 360px;
 }
 
 .typeBelow {
