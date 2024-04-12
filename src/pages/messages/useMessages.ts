@@ -1,8 +1,8 @@
+import { IMessage } from '@interface/message'
+import { database } from '@service/firebase'
+import { MessageService } from '@service/messages'
 import { collection, orderBy, query } from 'firebase/firestore'
 import { ChangeEvent, useEffect, useState } from 'react'
-import { IMessage } from '../../interface/message'
-import { database } from '../../service/firebase'
-import { MessageService } from '../../service/messages'
 
 const useMessages = () => {
   const [message, setMessage] = useState('')

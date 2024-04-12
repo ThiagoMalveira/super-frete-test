@@ -1,3 +1,6 @@
+import { IMessage } from '@interface/message'
+import { database } from '@service/firebase'
+import { formatDate } from '@utils/forDate'
 import {
   CollectionReference,
   DocumentData,
@@ -6,9 +9,6 @@ import {
   collection,
   getDocs,
 } from 'firebase/firestore'
-import { IMessage } from '../../interface/message'
-import { formatDate } from '../../utils/forDate'
-import { database } from '../firebase'
 
 export class MessageService {
   messageRef: CollectionReference<DocumentData, DocumentData>
