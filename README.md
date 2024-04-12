@@ -8,6 +8,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - [Ionic](https://ionicframework.com/)
 - [Capacitor](https://capacitorjs.com)
 - [Testing Library](https://testing-library.com)
+- [Craco](https://craco.js.org)
 
 ## 🚀 Como executar
 
