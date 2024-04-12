@@ -1,14 +1,14 @@
 import { fireEvent, render, screen } from '@testing-library/react'
-import App from './App'
+import Messages from '..'
 
 test('Should render the page', () => {
-  render(<App />)
+  render(<Messages />)
   const element = screen.getByText(/Digite um texto abaixo/i)
   expect(element).toBeInTheDocument()
 })
 
 test('should display message input label above input when input is empty and input is focused', () => {
-  render(<App />)
+  render(<Messages />)
 
   const input = screen.getByLabelText('Insira sua mensagem*')
   fireEvent.focus(input)
@@ -17,13 +17,13 @@ test('should display message input label above input when input is empty and inp
 })
 
 test('should render the input and button', () => {
-  render(<App />)
+  render(<Messages />)
   expect(screen.getByText('Insira sua mensagem*')).toBeInTheDocument()
   expect(screen.getByRole('button', { name: 'Enviar' })).toBeInTheDocument()
 })
 
 test('should display loading spinner while sending message', () => {
-  render(<App />)
+  render(<Messages />)
   const input = screen.getByLabelText('Insira sua mensagem*')
   const button = screen.getByRole('button', { name: 'Enviar' })
 
@@ -34,7 +34,7 @@ test('should display loading spinner while sending message', () => {
 })
 
 test('should display loading spinner when there are no messages and loading is not complete', () => {
-  const { getByTestId } = render(<App />)
+  const { getByTestId } = render(<Messages />)
 
   expect(getByTestId('loading-spinner')).toBeInTheDocument()
 })

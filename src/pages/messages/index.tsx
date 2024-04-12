@@ -1,20 +1,20 @@
-import style from './App.module.css'
-import Button from './components/Button'
-import Input from './components/Input'
-import Loading from './components/Loading'
-import { Logo } from './components/Logo'
-import Message from './components/Message'
-import Separator from './components/Separator'
-import useApp from './useApp'
+import Button from '../../components/Button'
+import Input from '../../components/Input'
+import Loading from '../../components/Loading'
+import { Logo } from '../../components/Logo'
+import Message from '../../components/Message'
+import Separator from '../../components/Separator'
+import style from './messages.module.css'
+import useMessages from './useMessages'
 
-function App() {
+function Messages() {
   const {
     allMessages,
     handleCreateNewMessage,
     disabled,
     handleChange,
     message,
-  } = useApp()
+  } = useMessages()
 
   return (
     <div className={style.Wrapper}>
@@ -74,4 +74,4 @@ function App() {
   )
 }
 
-export default App
+export default Messages

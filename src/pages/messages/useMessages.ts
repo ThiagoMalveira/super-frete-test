@@ -1,7 +1,7 @@
 import { addDoc, collection, getDocs, orderBy, query } from 'firebase/firestore'
 import { ChangeEvent, useEffect, useState } from 'react'
-import { database } from './service/firebase'
-import { formatDate } from './utils/forDate'
+import { database } from '../../service/firebase'
+import { formatDate } from '../../utils/forDate'
 
 interface IMessage {
   id: string
@@ -9,7 +9,7 @@ interface IMessage {
   data: string
 }
 
-const useApp = () => {
+const useMessages = () => {
   const [message, setMessage] = useState('')
   const [disabled, setDisabled] = useState(false)
   const [allMessages, setAllMessages] = useState<IMessage[]>([])
@@ -65,4 +65,4 @@ const useApp = () => {
   }
 }
 
-export default useApp
+export default useMessages
