@@ -4,10 +4,11 @@ import { formatDate } from '@utils/forDate'
 import {
   CollectionReference,
   DocumentData,
-  Query,
+  QueryOrderByConstraint,
   addDoc,
   collection,
   getDocs,
+  query,
 } from 'firebase/firestore'
 
 export class MessageService {
@@ -16,9 +17,10 @@ export class MessageService {
   constructor() {
     this.messageRef = collection(database, 'messages')
   }
-  async getMessages(query: Query<DocumentData, DocumentData>) {
+  async getMessages(queryParams: QueryOrderByConstraint) {
     try {
-      const data = await getDocs(query)
+      const queryData = query(this.messageRef, queryParams)
+      const data = await getDocs(queryData)
 
       return data.docs.map((doc) => ({
         ...doc.data(),

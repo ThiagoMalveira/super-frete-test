@@ -1,7 +1,6 @@
 import { IMessage } from '@interface/message'
-import { database } from '@service/firebase'
 import { MessageService } from '@service/messages'
-import { collection, orderBy, query } from 'firebase/firestore'
+import { orderBy } from 'firebase/firestore'
 import { ChangeEvent, useEffect, useState } from 'react'
 
 const useMessages = () => {
@@ -10,7 +9,6 @@ const useMessages = () => {
   const [allMessages, setAllMessages] = useState<IMessage[]>([])
 
   const messageService = new MessageService()
-  const messageRef = collection(database, 'messages')
 
   const handleCreateNewMessage = async () => {
     try {
@@ -34,7 +32,7 @@ const useMessages = () => {
   const handleGetMessages = async () => {
     try {
       setDisabled(true)
-      const queryData = query(messageRef, orderBy('data', 'desc'))
+      const queryData = orderBy('data', 'desc')
 
       const data = await messageService.getMessages(queryData)
       setAllMessages(data)
