@@ -1,27 +1,21 @@
-import { addDoc, collection, getDocs, orderBy, query } from 'firebase/firestore'
+import { collection, orderBy, query } from 'firebase/firestore'
 import { ChangeEvent, useEffect, useState } from 'react'
+import { IMessage } from '../../interface/message'
 import { database } from '../../service/firebase'
-import { formatDate } from '../../utils/forDate'
-
-interface IMessage {
-  id: string
-  message: string
-  data: string
-}
+import { MessageService } from '../../service/messages'
 
 const useMessages = () => {
   const [message, setMessage] = useState('')
   const [disabled, setDisabled] = useState(false)
   const [allMessages, setAllMessages] = useState<IMessage[]>([])
 
+  const messageService = new MessageService()
   const messageRef = collection(database, 'messages')
+
   const handleCreateNewMessage = async () => {
     try {
       setDisabled(true)
-      await addDoc(messageRef, {
-        message,
-        data: formatDate(new Date()),
-      })
+      messageService.createMessage(message)
 
       setMessage('')
 
@@ -41,10 +35,9 @@ const useMessages = () => {
     try {
       setDisabled(true)
       const queryData = query(messageRef, orderBy('data', 'desc'))
-      const data = await getDocs(queryData)
-      setAllMessages(
-        data.docs.map((doc) => ({ ...doc.data(), id: doc.id })) as IMessage[],
-      )
+
+      const data = await messageService.getMessages(queryData)
+      setAllMessages(data)
     } catch (err) {
       throw new Error(`${err}`)
     } finally {
